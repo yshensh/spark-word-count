@@ -6,12 +6,33 @@
 
     <groupId>yshensh</groupId>
     <artifactId>spark-word-count</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
-
     <name>spark-word-count</name>
+    <packaging>jar</packaging>
+    <version>0.1.0-SNAPSHOT</version>
 
     <!-- start real POM -->
+    <dependencies>
+        <!-- Core Scala dependencies -->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.11.8</version>
+        </dependency>
+        <!-- Core Spark dependencies -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.10</artifactId>
+            <version>2.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Testing libraries -->
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.11</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+    </dependencies>
+
     <!-- scala-maven-plugin setup -->
     <build>
         <sourceDirectory>src/main/scala</sourceDirectory>
@@ -23,6 +44,11 @@
                     <groupId>net.alchim31.maven</groupId>
                     <artifactId>scala-maven-plugin</artifactId>
                     <version>3.2.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -41,31 +67,10 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <scalaVersion>2.10</scalaVersion>
+                    <scalaVersion>2.11.8</scalaVersion>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
-    <dependencies>
-        <!-- Core Scala dependencies -->
-        <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
-            <version>2.11.7</version>
-        </dependency>
-        <!-- Core Spark dependencies -->
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_2.10</artifactId>
-            <version>2.0.0</version>
-        </dependency>
-        <!-- Testing libraries -->
-        <dependency>
-            <groupId>org.scalatest</groupId>
-            <artifactId>scalatest_2.11</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-    </dependencies>
 
 </project>
